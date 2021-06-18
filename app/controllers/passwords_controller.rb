@@ -8,7 +8,7 @@ class PasswordsController < ApplicationController
     if Current.user.update(password_params)
       redirect_to root_path, notice: "Password successfully changed."
     else
-      render :edit, alert: "Password's don;t match."
+      render :edit, alert: "Password's don't match."
     end
   end
 
