@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/auth/twitter/callback', to: 'omniauth_callbacks#twitter'
 
   resources :twitter_accounts, only: %i[index destroy]
+  resources :tweets
 
   delete 'logout', to: 'sessions#destroy'
 end

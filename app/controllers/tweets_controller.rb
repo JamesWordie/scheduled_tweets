@@ -1,0 +1,27 @@
+class TweetsController < ApplicationController
+  before_action :require_user_logged_in!
+
+  def index
+    @tweets = Current.user.tweets
+  end
+
+  def new
+    @tweet = Tweet.new
+  end
+
+  def create
+
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+
+  end
+end
