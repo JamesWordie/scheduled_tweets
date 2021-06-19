@@ -10,7 +10,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-
+    @tweet = Current.user.tweets.new(tweet_params)
+    if @tweet.save
+      redirect_to tweets_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,5 +28,11 @@ class TweetsController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def tweet_params
+    params.require(:tweet).permit(:body, :publish_at, :twitter_account_id)
   end
 end

@@ -1,15 +1,10 @@
 <div class="container">
-  <h1 class="text-center mt-5">Schedule A Tweet</h1>
+  <h1 class="text-center my-5">Schedule A Tweet</h1>
   <div class="row justify-content-center">
     <div class="col-md-6">
       <%= form_with model: @tweet do |form| %>
-        <% if form.object.errors.any? %>
-          <div class="alert alert-danger">
-            <% form.object.errors.full_messages.each do |message| %>
-            <div><%= message %></div>
-            <% end %>
-          </div>
-        <% end %>
+        <%= render 'shared/form_errors', form: form %>
+
         <div class="mb-3">
           <%= form.label :twitter_account_id %>
           <%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control" } %>
@@ -20,9 +15,9 @@
           <%= form.text_area :body, class: "form-control" %>
         </div>
         <div class="mb-3">
-          <%= form.label :published_at %>
+          <%= form.label :publish_at %>
           <div class="form-control">
-            <%= form.datetime_select :published_at %>
+            <%= form.datetime_select :publish_at %>
           </div>
         </div>
         <div class="mb-3">
@@ -31,11 +26,4 @@
       <% end %>
     </div>
   </div>
-
-  <%#= simple_form_for @user, url: sign_up_path do |f| %>
-    <%#= f.input :email, class: "form-control" %>
-    <%#= f.input :password, class: "form-control" %>
-    <%#= f.input :password_confirmation, class: "form-control" %>
-    <%#= f.submit %>
-  <%# end %>
 </div>
