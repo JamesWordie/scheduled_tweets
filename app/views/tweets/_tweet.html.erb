@@ -1,0 +1,19 @@
+<div class="col-md-6 col-lg-4 my-3">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body my-3">
+      <h5 class="card-title"><%= tweet.body %></h5>
+      <% if tweet.published? %>
+        <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :blank  %>
+      <% else %>
+      <!-- format for the time from rails helper l before the datetime then format short/long -->
+        <p class="card-text"><i class="far fa-paper-plane"></i> at: <%= l tweet.publish_at, format: :long %></p>
+      <% end %>
+
+      <%= image_tag tweet.twitter_account.image, class: "rounded-circle mx-3" %>
+      <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: "blank" %>
+    </div>
+  </div>
+</div>
+
+
+

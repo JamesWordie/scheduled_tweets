@@ -9,5 +9,8 @@
     <% if Current.user.twitter_accounts.none? %>
       <%= button_to 'Connect Twitter', '/auth/twitter', method: :post, class:"btn btn-outline-primary" %>
     <% end %>
+    <div class="row mt-5 w-100">
+      <%= render @tweets %>
+    </div>
   </div>
 </div>
