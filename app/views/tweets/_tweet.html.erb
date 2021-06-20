@@ -6,9 +6,13 @@
         <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :blank  %>
       <% else %>
       <!-- format for the time from rails helper l before the datetime then format short/long -->
-        <p class="card-text"><i class="far fa-paper-plane"></i> at: <%= l tweet.publish_at, format: :long %></p>
+        <div class="d-inline-flex justify-content-between w-100">
+          <p class="card-text"><i class="far fa-paper-plane"></i> at: <%= l tweet.publish_at, format: :long %></p>
+          <%= link_to edit_tweet_path(tweet) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        </div>
       <% end %>
-
       <%= image_tag tweet.twitter_account.image, class: "rounded-circle mx-3" %>
       <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: "blank" %>
     </div>
