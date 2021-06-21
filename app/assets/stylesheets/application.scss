@@ -16,3 +16,10 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+.card-title {
+  border: 1px solid lightgrey;
+  padding: 7px;
+  border-radius: 20px 20px 0 20px;
+  box-shadow: 1px 1px lightgrey;
+}
