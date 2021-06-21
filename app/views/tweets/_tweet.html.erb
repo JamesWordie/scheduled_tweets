@@ -1,6 +1,6 @@
-<div class="col-md-6 col-lg-4 mt-3">
+<div class="col-md-6 col-lg-4 my-3">
   <div class="card bg-light" style="width: 18rem;">
-    <div class="card-body my-3">
+    <div class="card-body mt-3">
       <h5 class="card-title bg-white"><%= tweet.body %></h5>
       <% if tweet.published? %>
         <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :blank, class:"text-muted"  %>
